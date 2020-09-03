@@ -1,9 +1,9 @@
 import { Router } from "express";
+import authServer from "auth-server-cookie";
 import UsersController from "../controllers/UsersController";
-import Authorize from "../middleware/Authorize";
 
 const router = Router();
 
-router.get("/users", Authorize.check, UsersController.index);
+router.get("/users", authServer.check, UsersController.index);
 
 export default router;
